@@ -1,0 +1,216 @@
+
+
+
+<div class="page3 ">
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">  
+                    <p>ANME - Agence nationale pour la maitrise de l'energie</p>
+                </a>
+            </li>
+<br>
+<br>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                    <span class="title">Profil</span>
+                </a>
+            </li>
+          <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="briefcase-outline"></ion-icon>
+                    </span>
+                    <span class="title">Demande d'élègibilité</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle" onclick="toggleMenu()">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+            <div class="user">
+                <img src="client.jpg" alt="User Profile">
+            </div>
+        </div>
+
+
+    <div class="page3">
+
+    <form action="demande.php" method="POST" enctype="multipart/form-data">
+        <h2 class="text-center mb-4">PROSOL-INSCRIPTION-DEMANDE D'ELIGIBILITE</h2>
+        <div class="company-info1">
+            <div class="container my-5">
+                <div class="company-info3">
+                    <h4 class="mb-3">INFORMATIONS CONCERNANT L'ENTREPRISE</h4>
+                    
+                    <div class="mb-3 row">
+                        <label for="nom" class="col-sm-2 col-form-label">Nom commercial</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nom" name="nom_commercial" placeholder="Entrez le nom commercial" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="gouvernorat" class="col-sm-2 col-form-label">Gouvernorat</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="gouvernorat" name="gouvernorat" placeholder="Entrez le gouvernorat" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Entrez l'email" required>
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                        <label for="num_telephone" class="col-sm-2 col-form-label">Numéro de téléphone</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="num_telephone" name="num_telephone" placeholder="Entrez le numéro de téléphone" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="num_telecopieur" class="col-sm-2 col-form-label">Numéro de télécopieur</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="num_telecopieur" name="num_telecopieur" placeholder="Entrez le numéro de télécopieur" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="identifiant_unique" class="col-sm-2 col-form-label">identifiant_unique</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="identifiant_unique" name="identifiant_unique" placeholder="Entrez l'identifiant_unique" required>
+                        </div>
+                    </div>
+                   
+                    <div class="mb-3 row">
+                        <label for="adresse_siege" class="col-sm-2 col-form-label">Adresse du siège social</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="adresse_siege" name="adresse_siege" placeholder="Entrez l'adresse siege" required>
+                        </div>
+                    </div>
+               
+                    <div class="mb-3 row">
+                        <label for="capital_social" class="col-sm-2 col-form-label">Numéro de l'identifiant fiscal</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="identifiant_fiscal" name="identifiant_fiscal" placeholder="Entrez le numéro de l'identifiant fiscal" required>
+                        </div>
+                    </div>
+                    
+
+                <div class="mb-3 row">
+                    <label for="delegation" class="col-sm-2 col-form-label">Délégation</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="delegation" name="delegation" placeholder="Entrez la Délégation" required>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="capital_social" class="col-sm-2 col-form-label">Valeur du capital Social</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="capital_social" name="capital_social" placeholder="Entrez la Valeur du capital Social" required>
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="company-info4">
+                    <h3>INFORMATIONS CONCERNANT LE PREMIER RESPONSABLE DE L'ENTREPRISE</h3>
+                    <div class="mb-3 row">
+                        <label for="nom" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nom" name="responsable_nom" placeholder="Entrez le nom" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="prenom" name="responsable_prenom" placeholder="Entrez le prénom">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="nationality" class="col-sm-2 col-form-label">Nationalité</label>
+                        <div class="col-sm-10">
+                            <select id="countries" class="form-control" id="nationalite" name="responsable_nationalite">
+                                <option value="" disabled selected>Choisir une nationalité</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    
+                    <div class="mb-3 row">
+                        <label for="date_creation" class="col-sm-2 col-form-label">Date de naissance</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="date_naissance" name="responsable_date_naissance" placeholder="Entrez la date de naissance" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 row">
+                        <label for="lieu_naissance" class="col-sm-2 col-form-label">Lieu de naissance</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lieu_naissance" name="responsable_lieu_naissance" placeholder="Entrez le lieu de naissance" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="CIN" class="col-sm-2 col-form-label">Numéro CIN</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="CIN" name="responsable_cin" placeholder="Entrez le numéro de CIN" required>
+                        </div>
+                    </div>
+        
+                    <div class="mb-3 row">
+                        <label for="email_societe" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email_societe" name="responsable_email"  placeholder="Entrez l'email de société" required>
+                        </div>
+                    </div>
+                   
+
+                    <div class="mt-4 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary" name="submit">Terminé</button>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+             
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+<script>
+
+
+let toggle = document.querySelector(".toggle");
+let navigation = document.querySelector(".navigation");
+let main = document.querySelector(".main");
+
+toggle.onclick = function () {
+  navigation.classList.toggle("active");
+  main.classList.toggle("active");
+};
+
+
+
+</script>
+

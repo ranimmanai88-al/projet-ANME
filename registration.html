@@ -1,0 +1,255 @@
+
+<div class="page2">
+    <form action="registration.php" method="POST" enctype="multipart/form-data">
+        <h2 class="text-center mb-4">PROSOL-INSCRIPTION-DEMANDE D'INSCRIPTION</h2>
+        <div class="company-info1">
+            <div class="container my-5">
+                <div class="mb-3 row">
+                    <label for="type_prestataire" class="col-sm-2 col-form-label page2">Type de prestataire</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="type_prestataire" name="type_prestataire" aria-label="Type de prestataire">
+                            <option value="IP">Installateur photovoltaïque</option>
+                            <option value="autre">Entreprises d'audit énergétique</option>
+                            <option value="autre">Fournisseurs de technologies énergétiques</option>
+                            <option value="autre">Consultants en efficacité énergétique</option>
+                            <option value="autre">Entreprises de construction et de rénovation</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="role-gerant" name="role" value="gerant">
+                            <label class="form-check-label" for="role-gerant">Gérant</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="role-co-gerant" name="role" value="co_gerant">
+                            <label class="form-check-label" for="role-co-gerant">Co-gérant</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-info3">
+                    <h4 class="mb-3">INFORMATION DU PREMIER RESPONSABLE</h4>
+                    <div class="mb-3 row">
+                        <label for="sexe-homme" class="col-sm-2 col-form-label">Vous êtes</label>
+                        <div class="col-sm-10">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="sexe-homme" name="sexe" value="homme">
+                                <label class="form-check-label" for="sexe-homme">Un homme</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="sexe-femme" name="sexe" value="femme">
+                                <label class="form-check-label" for="sexe-femme">Une femme</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="firstName" class="col-sm-2 col-form-label">Prénom</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="firstName" name="prenom" placeholder="Entrez le prénom" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="lastName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lastName" name="nom" placeholder="Entrez le nom" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Entrez l'email" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="mot_de_passe" class="col-sm-2 col-form-label">Mot de passe</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="mot_de_passe" name="mot_de_passe" placeholder="Entrez le mot de passe" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="num_telephone" class="col-sm-2 col-form-label">Numéro de téléphone</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="num_telephone" name="num_telephone" placeholder="Entrez le numéro de téléphone" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="date_naissance" class="col-sm-2 col-form-label">Date de naissance</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="date_naissance" name="date_naissance" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="lieu_naissance" class="col-sm-2 col-form-label">Lieu de naissance</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lieu_naissance" name="lieu_naissance" placeholder="Entrez le lieu de naissance" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="fonction" class="col-sm-2 col-form-label">Fonction</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="fonction" name="fonction" aria-label="Choisissez une fonction">
+                                <option value="" disabled selected>Choisissez une fonction</option>
+                                <option value="responsable">Rapporteur de commission</option>
+                                <option value="assistant">Président de la commission</option>
+                                <option value="technicien">Membre du DAJP</option>
+                                <option value="autre">Autre membre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="nationality" class="col-sm-2 col-form-label">Nationalité</label>
+                        <div class="col-sm-10">
+                            <select id="countries" class="form-control" id="nationalite" name="nationalite">
+                                <option value="" disabled selected>Choisir une nationalité</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-info4">
+                    <h3>INFORMATION DE SOCIETE</h3>
+                    <div class="mb-3 row">
+                        <label for="identifiantUnique" class="col-sm-2 col-form-label">Identifiant Unique</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="identifiantUnique" name="identifiant_unique" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="identifiant_fiscal" class="col-sm-2 col-form-label">Numéro de l'identifiant fiscal</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="identifiant_fiscal" name="identifiant_fiscal" placeholder="Entrez le numéro de l'identifiant fiscal">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="date_creation" class="col-sm-2 col-form-label">Date de création</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="date_creation" name="date_creation" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="rne" class="col-sm-2 col-form-label">Extraire du RNE</label>
+                        <div class="col-sm-10">
+                            <div class="cssFileUP" style="justify-content: center; color: #333; margin-left: 20px; margin-right: 20px; width: 1000px; padding: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                                <div class="wrapper" style="border-radius: 5px; width: 1000px; height: 200px; border: 2px dashed #333; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                                    <form action="#">
+                                        <i class="fa-solid fa-cloud-arrow-up" style="font-size: 30px; margin-bottom: 10px;"></i>
+                                        <p>Browse File to Upload</p>
+                                        <span class="file-name"></span>
+                                        <img class="file-preview" style="display: none; width: 100px; height: 100px; margin-top: 10px;" />
+                                        <input type="file" class="file-input" id="rne" name="rne" accept="image/*" style="display: none;">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3 row">
+                        <label for="rne" class="col-sm-2 col-form-label">Carte d'identification fiscale</label>
+                        <div class="col-sm-10">
+                            <div class="cssFileUP" style="justify-content: center; color: #333; margin-left: 20px; margin-right: 20px; width: 1000px; padding: 30px; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                                <div class="wrapper-carte" style="border-radius: 5px; width: 1000px; height: 200px; border: 2px dashed #333; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                                    <i class="fa-solid fa-cloud-arrow-up" style="font-size: 30px; margin-bottom: 10px;"></i>
+                                    <p>Browse File to Upload</p>
+                                    <span class="file-name-carte"></span>
+                                    <img class="file-preview-carte" style="display: none; width: 100px; height: 100px; margin-top: 10px;" />
+                                    <input type="file" class="file-input-carte" id="carte_identite_fiscale" name="carte_identite_fiscale"  accept="image/*" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="mb-3 row">
+                        <label for="raison_sociale" class="col-sm-2 col-form-label">Raison Sociale</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="raison_sociale" name="raison_sociale" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="capital_social" class="col-sm-2 col-form-label">Valeur du capital Social</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="capital_social" name="capital_social" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="adresse_siege" class="col-sm-2 col-form-label">Adresse du Siège Social</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="adresse_siege" name="adresse_siege" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="gouvernorat" class="col-sm-2 col-form-label">Gouvernorat</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="gouvernorat" name="gouvernorat" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="delegation" class="col-sm-2 col-form-label">Délégation</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="delegation" name="delegation" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="telephone" class="col-sm-2 col-form-label">Numéro de Téléphone</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="telephone" name="num_telephone" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="telecopie" class="col-sm-2 col-form-label">Numéro de Télécopieur</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="telecopie" name="telecopie" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="email_societe" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email_societe" name="email_societe" required>
+                        </div>
+                    </div>
+                    <div class="signature-container-wrapper divsignature">
+                        <div class="signature-container ">
+                            <canvas id="signature-canvas" class="canvas " width="400" height="200"></canvas>
+                            <button type="button" class="" id="clearButton">Effacer</button>
+                            <button type="button" class=""  id="downloadButton">Télécharger la signature</button>
+                        </div>
+                        <input id="signature-output" name="signature" class="hidden"></input>
+                    </div>
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="checkbox" id="engagement" name="engagement" required>
+                        <label class="form-check-label" for="engagement">
+                            Je m'engage sur la fiabilité et l'exactitude des informations renseignées
+                        </label>
+                    </div>
+                    <div class="mt-4 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary" name="submit">Terminé</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="signature.js?v=jfhdfhgdhd"></script>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+  function save() {
+
+$.ajax({
+    type: "POST",
+    url: "registration.php",
+    data:
+    {
+       
+    },
+    success: function () {
+    
+    }
+});
+
+ }
+
+</script>

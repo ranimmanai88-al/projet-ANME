@@ -1,0 +1,312 @@
+sans alert
+<?php
+// Vérifier si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Connexion à la base de données
+    $host = "localhost";  // Remplacez par votre hôte
+    $user = "root";  // Remplacez par votre utilisateur MySQL
+    $password = "";  // Remplacez par votre mot de passe
+    $database = "stage";  // Remplacez par le nom de votre base de données
+
+    $conn = new mysqli($host, $user, $password, $database);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        die("Erreur de connexion : " . $conn->connect_error);
+    }
+
+    // Récupérer les données du formulaire
+    $type_prestataire = $_POST['type_prestataire'] ?? '';
+    $role = $_POST['role'] ?? '';
+    $sexe = $_POST['sexe'] ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $nom = $_POST['nom'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $num_telephone = $_POST['num_telephone'] ?? '';
+    $date_naissance = $_POST['date_naissance'] ?? '';
+    $lieu_naissance = $_POST['lieu_naissance'] ?? '';
+    $fonction = $_POST['fonction'] ?? '';
+    $nationalite = $_POST['nationalite'] ?? '';
+    $identifiant_unique = $_POST['identifiant_unique'] ?? '';
+    $identifiant_fiscal = $_POST['identifiant_fiscal'] ?? '';
+    $date_creation = $_POST['date_creation'] ?? '';
+    $raison_sociale = $_POST['raison_sociale'] ?? '';
+    $capital_social = $_POST['capital_social'] ?? '';
+    $adresse_siege = $_POST['adresse_siege'] ?? '';
+    $gouvernorat = $_POST['gouvernorat'] ?? '';
+    $delegation = $_POST['delegation'] ?? '';
+    $telecopie = $_POST['telecopie'] ?? '';
+    $email_societe = $_POST['email_societe'] ?? '';
+    $engagement = isset($_POST['engagement']) ? 1 : 0;
+    $signature = isset($_FILES['signature']) ? $_FILES['signature'] : null;
+    $rne = isset($_FILES['rne']) ? $_FILES['rne'] : null;
+
+    // Définir le répertoire de destination pour les fichiers téléchargés
+    $target_dir = "uploads/";
+
+    // Vérifier si le dossier 'uploads' existe, sinon le créer
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    // Initialiser les variables des fichiers téléchargés
+    $signature_target = '';
+    $rne_target = '';
+    $carte_identite_fiscale_target = '';
+
+    // Vérification et déplacement du fichier rne
+    if ($rne && $rne['error'] === UPLOAD_ERR_OK) {
+        $rne_target = $target_dir . basename($rne["name"]);
+        move_uploaded_file($rne["tmp_name"], $rne_target);
+    }
+
+    // Vérification et déplacement du fichier carte_identite_fiscale
+    if (isset($_FILES['carte_identite_fiscale']) && $_FILES['carte_identite_fiscale']['error'] === UPLOAD_ERR_OK) {
+        $carte_identite_fiscale_target = $target_dir . basename($_FILES["carte_identite_fiscale"]["name"]);
+        move_uploaded_file($_FILES["carte_identite_fiscale"]["tmp_name"], $carte_identite_fiscale_target);
+    }
+
+    $signature_target = '';
+if ($signature && $signature['error'] === UPLOAD_ERR_OK) {
+    $signature_target = $target_dir . basename($signature["name"]);
+    move_uploaded_file($signature["tmp_name"], $signature_target);
+}
+
+
+    // Vérifier si le client existe déjà avec les mêmes informations
+    $check_query = "SELECT COUNT(*) FROM inscriptions WHERE email = '$email' AND identifiant_unique = '$identifiant_unique'";
+    $result = $conn->query($check_query);
+    $row = $result->fetch_row();
+
+    // Si le client existe déjà, ne pas insérer de nouveau
+    if ($row[0] > 0) {
+        echo "Un client avec ces informations existe déjà.";
+    } else {
+        // Préparer la requête d'insertion
+        $sql = "INSERT INTO inscriptions 
+        (type_prestataire, role, sexe, prenom, nom, email, num_telephone, date_naissance, lieu_naissance, fonction, nationalite, identifiant_unique, identifiant_fiscal, date_creation, rne, carte_identite_fiscale, raison_sociale, capital_social, adresse_siege, gouvernorat, delegation, telecopie, email_societe, engagement, signature) 
+        VALUES 
+        ('$type_prestataire', '$role', '$sexe', '$prenom', '$nom', '$email', '$num_telephone', '$date_naissance', '$lieu_naissance', '$fonction', '$nationalite', '$identifiant_unique', '$identifiant_fiscal', '$date_creation', '$rne_target', '$carte_identite_fiscale_target', '$raison_sociale', '$capital_social', '$adresse_siege', '$gouvernorat', '$delegation', '$telecopie', '$email_societe', '$engagement', '$signature_target')";
+
+        // Exécuter la requête
+        if ($conn->query($sql) === TRUE) {
+            echo "Le compte client a été ajouté avec succès.";
+        } else {
+            echo "Erreur : " . $sql . "<br>" . $conn->error;
+        }
+    }
+
+    // Fermer la connexion
+    $conn->close();
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+avec alert:
+
+
+<?php
+// Vérifier si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Connexion à la base de données
+    $host = "localhost";  // Remplacez par votre hôte
+    $user = "root";  // Remplacez par votre utilisateur MySQL
+    $password = "";  // Remplacez par votre mot de passe
+    $database = "stage";  // Remplacez par le nom de votre base de données
+
+    $conn = new mysqli($host, $user, $password, $database);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        echo "<script>alert('Erreur de connexion : " . $conn->connect_error . "');</script>";
+        die();
+    }
+
+    // Récupérer les données du formulaire
+    $type_prestataire = $_POST['type_prestataire'] ?? '';
+    $role = $_POST['role'] ?? '';
+    $sexe = $_POST['sexe'] ?? '';
+    $prenom = $_POST['prenom'] ?? '';
+    $nom = $_POST['nom'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $num_telephone = $_POST['num_telephone'] ?? '';
+    $date_naissance = $_POST['date_naissance'] ?? '';
+    $lieu_naissance = $_POST['lieu_naissance'] ?? '';
+    $fonction = $_POST['fonction'] ?? '';
+    $nationalite = $_POST['nationalite'] ?? '';
+    $identifiant_unique = $_POST['identifiant_unique'] ?? '';
+    $identifiant_fiscal = $_POST['identifiant_fiscal'] ?? '';
+    $date_creation = $_POST['date_creation'] ?? '';
+    $raison_sociale = $_POST['raison_sociale'] ?? '';
+    $capital_social = $_POST['capital_social'] ?? '';
+    $adresse_siege = $_POST['adresse_siege'] ?? '';
+    $gouvernorat = $_POST['gouvernorat'] ?? '';
+    $delegation = $_POST['delegation'] ?? '';
+    $telecopie = $_POST['telecopie'] ?? '';
+    $email_societe = $_POST['email_societe'] ?? '';
+    $engagement = isset($_POST['engagement']) ? 1 : 0;
+    $signature = isset($_FILES['signature']) ? $_FILES['signature'] : null;
+    $rne = isset($_FILES['rne']) ? $_FILES['rne'] : null;
+
+    // Définir le répertoire de destination pour les fichiers téléchargés
+    $target_dir = "uploads/";
+
+    // Vérifier si le dossier 'uploads' existe, sinon le créer
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+    }
+
+    // Initialiser les variables des fichiers téléchargés
+    $signature_target = '';
+    $rne_target = '';
+    $carte_identite_fiscale_target = '';
+
+    // Vérification et déplacement du fichier rne
+    if ($rne && $rne['error'] === UPLOAD_ERR_OK) {
+        $rne_target = $target_dir . basename($rne["name"]);
+        move_uploaded_file($rne["tmp_name"], $rne_target);
+    }
+
+    // Vérification et déplacement du fichier carte_identite_fiscale
+    if (isset($_FILES['carte_identite_fiscale']) && $_FILES['carte_identite_fiscale']['error'] === UPLOAD_ERR_OK) {
+        $carte_identite_fiscale_target = $target_dir . basename($_FILES["carte_identite_fiscale"]["name"]);
+        move_uploaded_file($_FILES["carte_identite_fiscale"]["tmp_name"], $carte_identite_fiscale_target);
+    }
+
+    $signature_target = '';
+    if ($signature && $signature['error'] === UPLOAD_ERR_OK) {
+        $signature_target = $target_dir . basename($signature["name"]);
+        move_uploaded_file($signature["tmp_name"], $signature_target);
+    }
+
+    // Vérifier si le client existe déjà avec les mêmes informations
+    $check_query = "SELECT COUNT(*) FROM inscriptions WHERE email = '$email' AND identifiant_unique = '$identifiant_unique'";
+    $result = $conn->query($check_query);
+    $row = $result->fetch_row();
+
+    // Si le client existe déjà, ne pas insérer de nouveau
+    if ($row[0] > 0) {
+        echo "<script>alert('Un client avec ces informations existe déjà.');</script>";
+    } else {
+        // Préparer la requête d'insertion
+        $sql = "INSERT INTO inscriptions 
+        (type_prestataire, role, sexe, prenom, nom, email, num_telephone, date_naissance, lieu_naissance, fonction, nationalite, identifiant_unique, identifiant_fiscal, date_creation, rne, carte_identite_fiscale, raison_sociale, capital_social, adresse_siege, gouvernorat, delegation, telecopie, email_societe, engagement, signature) 
+        VALUES 
+        ('$type_prestataire', '$role', '$sexe', '$prenom', '$nom', '$email', '$num_telephone', '$date_naissance', '$lieu_naissance', '$fonction', '$nationalite', '$identifiant_unique', '$identifiant_fiscal', '$date_creation', '$rne_target', '$carte_identite_fiscale_target', '$raison_sociale', '$capital_social', '$adresse_siege', '$gouvernorat', '$delegation', '$telecopie', '$email_societe', '$engagement', '$signature_target')";
+
+        // Exécuter la requête
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Le compte client a été ajouté avec succès.');</script>";
+        } else {
+            echo "<script>alert('Erreur : " . $conn->error . "');</script>";
+        }
+    }
+
+    // Fermer la connexion
+    $conn->close();
+}
+?>
+
+
+
+
+
+<?php
+// Vérifier si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Connexion à la base de données
+    $host = "localhost";  // Remplacez par votre hôte
+    $user = "root";  // Remplacez par votre utilisateur MySQL
+    $password = "";  // Remplacez par votre mot de passe
+    $database = "stage";  // Remplacez par le nom de votre base de données
+
+    $conn = new mysqli($host, $user, $password, $database);
+
+    // Vérifier la connexion
+    if ($conn->connect_error) {
+        $message = "Erreur de connexion : " . $conn->connect_error;
+        $alert_type = 'error';  // Type d'alerte pour SweetAlert
+    } else {
+        // Récupérer les données du formulaire
+        $type_prestataire = $_POST['type_prestataire'] ?? '';
+        $role = $_POST['role'] ?? '';
+        $sexe = $_POST['sexe'] ?? '';
+        $prenom = $_POST['prenom'] ?? '';
+        $nom = $_POST['nom'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $num_telephone = $_POST['num_telephone'] ?? '';
+        $date_naissance = $_POST['date_naissance'] ?? '';
+        $lieu_naissance = $_POST['lieu_naissance'] ?? '';
+        $fonction = $_POST['fonction'] ?? '';
+        $nationalite = $_POST['nationalite'] ?? '';
+        $identifiant_unique = $_POST['identifiant_unique'] ?? '';
+        $identifiant_fiscal = $_POST['identifiant_fiscal'] ?? '';
+        $date_creation = $_POST['date_creation'] ?? '';
+        $raison_sociale = $_POST['raison_sociale'] ?? '';
+        $capital_social = $_POST['capital_social'] ?? '';
+        $adresse_siege = $_POST['adresse_siege'] ?? '';
+        $gouvernorat = $_POST['gouvernorat'] ?? '';
+        $delegation = $_POST['delegation'] ?? '';
+        $telecopie = $_POST['telecopie'] ?? '';
+        $email_societe = $_POST['email_societe'] ?? '';
+        $engagement = isset($_POST['engagement']) ? 1 : 0;
+        $signature = isset($_FILES['signature']) ? $_FILES['signature'] : null;
+        $rne = isset($_FILES['rne']) ? $_FILES['rne'] : null;
+
+        // Vérifier si le client existe déjà avec les mêmes informations
+        $check_query = "SELECT COUNT(*) FROM inscriptions WHERE email = '$email' AND identifiant_unique = '$identifiant_unique'";
+        $result = $conn->query($check_query);
+        $row = $result->fetch_row();
+
+        // Si le client existe déjà, ne pas insérer de nouveau
+        if ($row[0] > 0) {
+            $message = 'Un client avec ces informations existe déjà.';
+            $alert_type = 'error';  // Type d'alerte pour SweetAlert
+        } else {
+            // Préparer la requête d'insertion
+            $sql = "INSERT INTO inscriptions 
+            (type_prestataire, role, sexe, prenom, nom, email, num_telephone, date_naissance, lieu_naissance, fonction, nationalite, identifiant_unique, identifiant_fiscal, date_creation, rne, carte_identite_fiscale, raison_sociale, capital_social, adresse_siege, gouvernorat, delegation, telecopie, email_societe, engagement, signature) 
+            VALUES 
+            ('$type_prestataire', '$role', '$sexe', '$prenom', '$nom', '$email', '$num_telephone', '$date_naissance', '$lieu_naissance', '$fonction', '$nationalite', '$identifiant_unique', '$identifiant_fiscal', '$date_creation', '$rne_target', '$carte_identite_fiscale_target', '$raison_sociale', '$capital_social', '$adresse_siege', '$gouvernorat', '$delegation', '$telecopie', '$email_societe', '$engagement', '$signature_target')";
+
+            // Exécuter la requête
+            if ($conn->query($sql) === TRUE) {
+                $message = 'Le compte client a été ajouté avec succès.';
+                $alert_type = 'success';  // Type d'alerte pour SweetAlert
+            } else {
+                $message = 'Erreur : ' . $conn->error;
+                $alert_type = 'error';  // Type d'alerte pour SweetAlert
+            }
+        }
+
+        // Fermer la connexion
+        $conn->close();
+    }
+
+    // Générer le code SweetAlert dans le script
+    echo "
+    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+    <script>
+        swal({
+            title: '$message',
+            icon: '$alert_type',
+        });
+    </script>";
+}
+?>
+
+
+
+

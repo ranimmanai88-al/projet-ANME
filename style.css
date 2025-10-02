@@ -1,0 +1,480 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* styles pour la premiere page (login et recover et generate password) */
+
+div.page1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("smatr-grids-centrale-photovoltaique-1.png") no-repeat center center/cover;
+}
+
+.container.divcontainer {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+form.page1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+}
+
+form.page1 h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-box.divinput {
+    position: relative;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.input-box.divinput i {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.input-box.divinput input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 10px 10px 30px;
+}
+
+.input-box.divinput label {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.input-box.divinput input:focus + label,
+.input-box.divinput input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 1px;
+    font-size: 14px;
+    color: #fff;
+}
+
+button.page1 {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background: #fff;
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+button.page1:hover {
+    background: #f0f0f0;
+}
+
+.recover {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.recover.page1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.recover.page1 a:hover {
+    color: #ddd;
+}
+
+
+
+@media (max-width: 768px) {
+    .container.page1 {
+        padding: 15px;
+    }
+
+    form.page1 h2 {
+        font-size: 1.6rem;
+    }
+
+    .input-box.page1 input {
+        font-size: 0.9rem;
+    }
+
+    button.page1 {
+        font-size: 0.9rem;
+    }
+
+    .recover.page1 a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container.page1 {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    form.page1 h2 {
+        font-size: 1.4rem;
+    }
+
+    .input-box.page1 input {
+        font-size: 0.8rem;
+    }
+
+    button.page1 {
+        font-size: 0.8rem;
+    }
+
+    .recover.page1 a {
+        font-size: 0.7rem;
+    }
+}
+
+
+
+
+/* styles pour la deuxieme page (registration) */
+
+div.page2 {
+    background-color: #5581aa;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page2 .container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page2 .company-info2,
+.page2 .company-info3,
+.page2 .company-info4 {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.signature-container-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.signature-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+#signature-canvas {
+    border: 1px solid #000;
+    background-color: #fff;
+}
+
+#clearButton, #downloadButton {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#clearButton.page2:hover, #downloadButton.page2:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: crimson;
+    margin: 10px 0;
+}
+
+.cssFileUP {
+    justify-content: center;
+    color: #333;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 1000px;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    border-radius: 5px;
+    width: 1000px;
+    height: 100px;
+    border: 2px dashed #333;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* styles pour la troisieme page (demande) */
+
+
+:root {
+    --blue: #0056b3;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+  }
+  
+
+
+.page3 .company-info2,
+.page3 .company-info3,
+.page3 .company-info4 {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+
+.page3 navigation p{
+  font-family: "Poppins", sans-serif;
+text-align: start;
+
+
+}
+  
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

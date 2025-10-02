@@ -1,0 +1,25 @@
+
+<div class="page1">
+    <div class="container divcontainer">
+        <form action="generate.php" method="post" class="page1">
+            <h2 class="page1">Générer un nouveau mot de passe</h2>
+            <input type="hidden" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+            <div class="input-box divinput">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="new-password" required>
+                <label for="">Nouveau Mot de Passe</label>
+            </div>
+            <div class="input-box divinput">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirm-password" required>
+                <label for="">Confirmer le Mot de Passe</label>
+            </div>
+            <div class="input-box divinput">
+                <button type="submit" name="submit" class="page1">Générer le mot de passe</button>
+            </div>
+            <div class="recover">
+                <a href="index.php?page=login" style="color: #fff; text-decoration:none;">Retour à la connexion</a>
+            </div>
+        </form>
+    </div>
+</div>

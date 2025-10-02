@@ -1,0 +1,34 @@
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   <div class="page1">
+   <div class="container divcontainer">
+        <form method="post" action="login.php" class="page1">
+            <h2>Login</h2>
+            <div class="input-box divinput">
+                <i class="fas fa-user-circle"> </i>
+                <input type="text" name="email" required>
+                <label for="" >Email Utilisateur</label>
+            </div>
+            <div class="input-box divinput">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="mot_de_passe" required>
+                <label for="">Mot de passe</label>
+            </div>
+            
+            <div class="b1">
+                <button type="submit" name="submit" class="page1">Se connecter</button> 
+            </div>
+             
+            <div class="b2">
+                <button class="page1">  <a href="index.php?page=registration" style="color:#333; text-decoration: none;">Créer un compte </a></button>
+            <div class="recover">
+                <a href="index.php?page=recover" style="color: #fff; text-decoration: none;">Récupérer le compte</a>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LeEQr0qAAAAABt0KBEO_bRWGTfta7PU39XRwh8k" 
+                 style="width: 120% !important; margin: 20px; border-radius: 5px; padding: 5px;">
+            </div>
+        </form>
+    </div>
+
+</div>
+
